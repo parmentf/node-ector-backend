@@ -21,7 +21,7 @@ server.route({
   path: '/hello/{name?}',
   handler: (request, h) => {
       const user = request.params.name || 'stranger';
-
+      request.logger.info(`user: ${user}`);
       return 'Hello, ' + user + '!';
   },
   options: {
@@ -42,13 +42,29 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/v1/reply/{user}/{entry}',
+  handler: (request, h) => {
+    const { user, entry } = request.params;
+    request.log(['user', 'entry'], [user, entry]);
+    request.logger.info(`What's the difference?`, `Is the second parameter displayed?`);
+    return 'Not implemented yet';
+  },
+  options: {
+    description: `Get the reply from to the user's entry.`,
+    notes: `Don't use the entry to learn anything.`,
+    tags: ['api', 'reply-only']
+  }
+});
+
 const init = async () => {
 
   await server.register({
     plugin: require('hapi-pino'),
     options: {
       prettyPrint: process.env.NODE_ENV !== 'production',
-      logEvents: ['response']
+      //logEvents: ['response']
     }
   });
 

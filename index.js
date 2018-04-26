@@ -1,6 +1,10 @@
 'use strict';
 
 const Hapi = require('hapi');
+const Ector = require('ector');
+const reply = require('./routes/reply');
+
+const ector = new Ector();
 
 const server = Hapi.server({
     port: 3000,
@@ -47,14 +51,14 @@ server.route({
   path: '/v1/reply/{user}/{entry}',
   handler: (request, h) => {
     const { user, entry } = request.params;
-    request.log(['user', 'entry'], [user, entry]);
-    request.logger.info(`What's the difference?`, `Is the second parameter displayed?`);
-    return 'Not implemented yet';
+    const answer = reply(ector, user, entry);
+    request.logger.info(`/v1/reply/${user}/${entry} ==> ${answer}`);
+    return answer;
   },
   options: {
     description: `Get the reply from to the user's entry.`,
-    notes: `Don't use the entry to learn anything.`,
-    tags: ['api', 'reply-only']
+    notes: `Warning: use the entry to learn.`,
+    tags: ['api', 'reply', 'learn']
   }
 });
 

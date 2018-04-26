@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/parmentf/node-ector-backend#readme",
   "dependencies": {
+    "ector": "^1.0.1",
     "hapi": "^17.3.1",
     "hapi-pino": "^4.0.4"
   },

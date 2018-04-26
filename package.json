@@ -1,0 +1,31 @@
+{
+  "name": "ector-backend",
+  "version": "1.0.0",
+  "description": "ECTOR Backend for any ECTOR application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parmentf/node-ector-backend.git"
+  },
+  "keywords": [
+    "chatterbot",
+    "learning",
+    "api"
+  ],
+  "author": "François Parmentier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/parmentf/node-ector-backend/issues"
+  },
+  "homepage": "https://github.com/parmentf/node-ector-backend#readme",
+  "dependencies": {
+    "hapi": "^17.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}

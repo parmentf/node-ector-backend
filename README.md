@@ -19,3 +19,10 @@ Get ECTOR's reply to the `user`'s `entry`.
 
 Get the Concept Network object.
 That may be useful to save ECTOR's concepts memory (not its memory for what you said to him lately).
+
+### concept-network-state
+
+`/v1/concept-network-state/{user}`
+
+Get the concept network state of a `user`, that is to say the activation values within the concept network.
+It's from these activation values that ECTOR choose the words from which it will form a sentence to reply.

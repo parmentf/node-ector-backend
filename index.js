@@ -51,6 +51,20 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/v1/concept-network',
+  handler: (request, h) => {
+    return ector.cn;
+  },
+  options: {
+    cors: true,
+    description: `Get the Concept Network.`,
+    notes: `This may be a large Javascript Object.`,
+    tags: ['api', 'serialization', 'backup']
+  }
+});
+
 const init = async () => {
 
   await server.register({

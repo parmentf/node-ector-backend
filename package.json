@@ -7,6 +7,9 @@
     "start": "node index.js",
     "test": "test"
   },
+  "engines": {
+    "node": "8.11.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parmentf/node-ector-backend.git"

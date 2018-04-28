@@ -15,7 +15,7 @@ server.route({
   path: '/',
   handler: (request, h) => {
 
-      return 'Welcome to ECTOR backend.';
+      return 'Welcome to ECTOR backend. See <a href="https://github.com/parmentf/node-ector-backend#readme">documentation</a>.';
   }
 });
 

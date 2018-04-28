@@ -36,17 +36,6 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/v1/json/{toto}',
-  handler: (request, h) => {
-    return {
-      payload: request.params.toto,
-      length: request.params.toto.length
-    }
-  }
-});
-
-server.route({
-  method: 'GET',
   path: '/v1/reply/{user}/{entry}',
   handler: (request, h) => {
     const { user, entry } = request.params;

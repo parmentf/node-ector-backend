@@ -3,6 +3,7 @@
 const Hapi = require('hapi');
 const Ector = require('ector');
 const reply = require('./routes/reply');
+const learn = require('./routes/learn');
 
 const ector = new Ector();
 
@@ -48,6 +49,23 @@ server.route({
     description: `Get the reply from to the user's entry.`,
     notes: `Warning: use the entry to learn.`,
     tags: ['api', 'reply', 'learn']
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/v1/learn/{source}/{entry}',
+  handler: (request, h) => {
+    const { source, entry } = request.params;
+    const nodes = learn(ector, source, entry);
+    request.logger.info(`/v1/learn/${source}/${entry}`);
+    return h.response(nodes).code(201);
+  },
+  options: {
+    cors: true,
+    description: `Add knowledge to ECTOR's concept network.`,
+    notes: `No activation value added. The source is an identifier of where the knowledge comes from (eg Wikipedia).`,
+    tags: ['api', 'learn']
   }
 });
 

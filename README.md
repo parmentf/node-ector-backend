@@ -13,6 +13,16 @@ Get ECTOR's reply to the `user`'s `entry`.
 > is incorrect, it would nevertheless be learned. Everything 
 > that's learned may be used in ECTOR's replies. See [Tay](https://en.wikipedia.org/wiki/Tay_(bot)).
 
+### learn
+
+`/v1/learn/{source}/{entry}`
+
+Add knowledge to ECTOR's concept network.
+
+No activation value added. The source is an identifier of where the knowledge comes from (eg Wikipedia).
+
+Returns the nodes created.
+
 ### concept-network
 
 `/v1/concept-network`

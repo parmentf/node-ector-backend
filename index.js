@@ -51,10 +51,11 @@ server.route({
   handler: (request, h) => {
     const { user, entry } = request.params;
     const answer = reply(ector, user, entry);
-    request.logger.info(`/v1/reply/${user}/${entry} ==> ${answer}`);
+    request.logger.info(`/v1/reply/${user}/${entry} ==> ${answer.sentence}`);
     return answer;
   },
   options: {
+    cors: true,
     description: `Get the reply from to the user's entry.`,
     notes: `Warning: use the entry to learn.`,
     tags: ['api', 'reply', 'learn']

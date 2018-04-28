@@ -65,6 +65,23 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/v1/concept-network-state/{user}',
+  handler: (request, h) => {
+    if (!ector.cns[request.params.user]) {
+      return h.response('User not found').code(404);
+    }
+    return  ector.cns[request.params.user].nodeState;
+  },
+  options: {
+    cors: true,
+    description: `Get the Concept Network State for the user.`,
+    notes: `The activation values only for the user.`,
+    tags: ['api', 'serialization', 'backup']
+  }
+});
+
 const init = async () => {
 
   await server.register({

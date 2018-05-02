@@ -1,6 +1,20 @@
 # node-ector-backend
 HTTP API for ECTOR
 
+## Launch
+
+To launch ector backend server, use either:
+
+```bash
+$ npm start
+```
+
+or:
+
+```bash
+$ heroku local web
+```
+
 ## Routes
 
 ### reply

@@ -25,5 +25,5 @@ const teachAbstract = url => fetch(url)
 Promise
     .all(urls.map(teachAbstract))
     .then(() => {
-        console.log(`subjects teached: ${subjects}`);
+        console.log(`subjects taught: ${subjects}`);
     });

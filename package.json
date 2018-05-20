@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "ECTOR Backend for any ECTOR application",
   "main": "index.js",
+  "bin": {
+    "learn": "./scripts/learn.js"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "test"

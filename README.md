@@ -1,4 +1,5 @@
 # node-ector-backend
+
 HTTP API for ECTOR
 
 ## Launch
@@ -6,13 +7,13 @@ HTTP API for ECTOR
 To launch ector backend server, use either:
 
 ```bash
-$ npm start
+npm start
 ```
 
 or:
 
 ```bash
-$ heroku local web
+heroku local web
 ```
 
 ## Routes
@@ -23,8 +24,8 @@ $ heroku local web
 
 Get ECTOR's reply to the `user`'s `entry`.
 
-> *Warning*: ECTOR learns from the `entry`, so if that entry 
-> is incorrect, it would nevertheless be learned. Everything 
+> *Warning*: ECTOR learns from the `entry`, so if that entry
+> is incorrect, it would nevertheless be learned. Everything
 > that's learned may be used in ECTOR's replies. See [Tay](https://en.wikipedia.org/wiki/Tay_(bot)).
 
 ### learn

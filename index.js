@@ -157,3 +157,5 @@ process.on('unhandledRejection', (err) => {
 if (!module.parent) {
     init();
 }
+
+module.exports = server;

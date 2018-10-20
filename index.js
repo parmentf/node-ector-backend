@@ -154,4 +154,6 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
 });
 
-init();
+if (!module.parent) {
+    init();
+}

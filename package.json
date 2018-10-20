@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint routes/ scripts/",
     "start": "node index.js",
-    "test": "test"
+    "test": "jest"
   },
   "engines": {
     "node": "8.11.1"
@@ -38,6 +38,7 @@
     "progress-string": "1.2.2"
   },
   "devDependencies": {
-    "eslint": "5.7.0"
+    "eslint": "5.7.0",
+    "jest": "23.6.0"
   }
 }

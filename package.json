@@ -38,6 +38,6 @@
     "progress-string": "1.2.2"
   },
   "devDependencies": {
-    "eslint": "5.6.1"
+    "eslint": "5.7.0"
   }
 }

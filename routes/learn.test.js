@@ -8,7 +8,10 @@ const defaultRequest = {
 
 describe('POST /learn', () => {
     it('should answer with a 200 code', (done) => {
-        const request = { ...defaultRequest }
-        
+        const request = {
+            ...defaultRequest,
+            payload: {  }
+        };
+        expect(server.inject(request)).resolves.toBe();
     });
 });

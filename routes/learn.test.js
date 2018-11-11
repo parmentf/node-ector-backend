@@ -1,9 +1,8 @@
 const server = require('../index');
 
-const defaultRequest = {
+let defaultRequest = {
     method: 'POST',
     url: '/v1/learn',
-    payload: {}
 };
 
 describe('POST /learn', () => {
@@ -26,6 +25,26 @@ describe('POST /learn', () => {
                 source: 'Source',
                 entry: 'Entry'
             }
+        };
+        server.inject(request)
+            .then(response => {
+                expect(response.statusCode).toBe(201);
+                done();
+            });
+    });
+});
+
+describe('GET /learn', () => {
+    beforeAll(() => {
+        defaultRequest = {
+            method: 'GET'
+        };
+    });
+
+    it('should answer with 201 code', (done) => {
+        const request = {
+            ...defaultRequest,
+            url: '/v1/learn/Source/Entry'
         };
         server.inject(request)
             .then(response => {

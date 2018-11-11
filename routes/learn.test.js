@@ -1,19 +1,23 @@
 const server = require('../index');
 
-let defaultRequest = {
-    method: 'POST',
-    url: '/v1/learn',
-};
+let defaultRequest;
 
 describe('POST /learn', () => {
-    it('should answer with 404 when no payload', (done) => {
+    beforeAll(() => {
+        defaultRequest = {
+            method: 'POST',
+            url: '/v1/learn/',
+        };
+    });
+
+    it('should answer with 400 when no payload', (done) => {
         const request = {
             ...defaultRequest,
             payload: {  }
         };
         server.inject(request)
             .then(response => {
-                expect(response.statusCode).toBe(404);
+                expect(response.statusCode).toBe(400);
                 done();
             });
     });

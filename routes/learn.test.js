@@ -56,4 +56,16 @@ describe('GET /learn', () => {
                 done();
             });
     });
+
+    it('should answer with 404 code with incomplete URL', (done) => {
+        const request = {
+            ...defaultRequest,
+            url: '/v1/learn/'
+        };
+        server.inject(request)
+            .then(response => {
+                expect(response.statusCode).toBe(404);
+                done();
+            });
+    });
 });

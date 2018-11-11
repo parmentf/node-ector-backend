@@ -90,6 +90,9 @@ server.route({
     method: 'POST',
     path: '/v1/learn/',
     handler: (request, h) => {
+        if (!request.payload || !request.payload.source || !request.payload.entry) {
+            throw Boom.badRequest(`Payload required {source, entry}!`);
+        }
         const { source, entry } = request.payload;
         const nodes = learn(ector, source, entry);
         request.logger && request.logger.info(`POST /v1/learn/${source}/${entry}`);

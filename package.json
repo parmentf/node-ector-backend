@@ -33,7 +33,7 @@
   "dependencies": {
     "ansi-diff-stream": "1.2.1",
     "ector": "1.0.1",
-    "hapi": "17.6.0",
+    "hapi": "17.7.0",
     "hapi-pino": "4.0.4",
     "node-fetch": "2.2.1",
     "progress-string": "1.2.2"

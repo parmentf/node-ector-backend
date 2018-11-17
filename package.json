@@ -7,9 +7,10 @@
     "learn": "./scripts/learn.js"
   },
   "scripts": {
-    "lint": "eslint routes/ scripts/",
+    "lint": "eslint index.js routes/ scripts/",
     "start": "node index.js",
-    "test": "test"
+    "test": "jest",
+    "test-w": "jest --watch"
   },
   "engines": {
     "node": "8.11.1"
@@ -31,13 +32,15 @@
   "homepage": "https://github.com/parmentf/node-ector-backend#readme",
   "dependencies": {
     "ansi-diff-stream": "1.2.1",
+    "boom": "7.2.2",
     "ector": "1.0.1",
-    "hapi": "17.6.0",
-    "hapi-pino": "4.0.4",
-    "node-fetch": "2.2.0",
+    "hapi": "17.7.0",
+    "hapi-pino": "5.1.0",
+    "node-fetch": "2.3.0",
     "progress-string": "1.2.2"
   },
   "devDependencies": {
-    "eslint": "5.7.0"
+    "eslint": "5.9.0",
+    "jest": "23.6.0"
   }
 }

@@ -20,7 +20,7 @@ const server = Hapi.server({
                 } else {
                     // During development, log and respond with the full error.
                     console.error(err);
-                    request.logger.error(err);
+                    request.logger && request.logger.error(err);
                     throw err;
                 }
             }
@@ -42,7 +42,7 @@ server.route({
     path: '/hello/{name?}',
     handler: (request, h) => {
         const user = request.params.name || 'stranger';
-        request.logger.info(`user: ${user}`);
+        request.logger && request.logger.info(`user: ${user}`);
         return 'Hello, ' + user + '!';
     },
     options: {
@@ -58,7 +58,7 @@ server.route({
     handler: (request, h) => {
         const { user, entry } = request.params;
         const answer = reply(ector, user, entry);
-        request.logger.info(`/v1/reply/${user}/${entry} ==> ${answer.sentence}`);
+        request.logger && request.logger.info(`/v1/reply/${user}/${entry} ==> ${answer.sentence}`);
         return answer;
     },
     options: {
@@ -75,7 +75,7 @@ server.route({
     handler: (request, h) => {
         const { source, entry } = request.params;
         const nodes = learn(ector, source, entry);
-        request.logger.info(`/v1/learn/${source}/${entry}`);
+        request.logger && request.logger.info(`/v1/learn/${source}/${entry}`);
         return h.response(nodes).code(201);
     },
     options: {
@@ -90,9 +90,12 @@ server.route({
     method: 'POST',
     path: '/v1/learn/',
     handler: (request, h) => {
+        if (!request.payload || !request.payload.source || !request.payload.entry) {
+            throw Boom.badRequest(`Payload required {source, entry}!`);
+        }
         const { source, entry } = request.payload;
         const nodes = learn(ector, source, entry);
-        request.logger.info(`POST /v1/learn/${source}/${entry}`);
+        request.logger && request.logger.info(`POST /v1/learn/${source}/${entry}`);
         return h.response(nodes).code(201);
     },
     options: {
@@ -154,4 +157,8 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
 });
 
-init();
+if (!module.parent) {
+    init();
+}
+
+module.exports = server;

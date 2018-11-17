@@ -36,7 +36,7 @@
     "ector": "1.0.1",
     "hapi": "17.7.0",
     "hapi-pino": "5.1.0",
-    "node-fetch": "2.2.1",
+    "node-fetch": "2.3.0",
     "progress-string": "1.2.2"
   },
   "devDependencies": {
